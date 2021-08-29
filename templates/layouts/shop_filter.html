@@ -1,0 +1,65 @@
+{% load static %}
+<div class="col-lg-3 order-lg-1 order-2">
+    <!-- Single Sidebar Start  -->
+    <div class="common-sidebar-widget">
+        <h3 class="sidebar-title">Product category</h3>
+        <ul class="sidebar-list">
+            {% for cat in category %}
+                <li>
+                    <a href="?cat={{ cat.pk }}"><i class="fa fa-plus"></i>{{ cat.title }}<span class="count">(14)</span></a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- Single Sidebar End  -->
+    <!-- Single Sidebar Start  -->
+    <div class="common-sidebar-widget">
+        <h3 class="sidebar-title">Product tags</h3>
+        <ul class="sidebar-tag">
+            {% for tag in tags %}
+                <li><a href="?tag={{ tag.pk }}">{{ tag.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- Single Sidebar End  -->
+    <!-- Single Sidebar Start  -->
+    <div class="common-sidebar-widget">
+        <h3 class="sidebar-title">Filter by price</h3>
+        <div class="sidebar-price">
+            <div id="price-range" class="mb-20"></div>
+            <button type="button" class="btn">Filter</button>
+            <input type="text" id="price-amount" class="price-amount" readonly>
+        </div>
+    </div>
+    <!-- Single Sidebar End  -->
+    <!-- Single Sidebar Start  -->
+    <div class="common-sidebar-widget">
+        <h3 class="sidebar-title">Filter by</h3>
+        <ul class="sidebar-list">
+            <li><a href="#"><i class="fa fa-plus"></i>Gold <span class="count">(1)</span></a></li>
+            <li><a href="#"><i class="fa fa-plus"></i>Green <span class="count">(1)</span></a></li>
+            <li><a href="#"><i class="fa fa-plus"></i>White <span class="count">(1)</span></a></li>
+        </ul>
+    </div>
+    <!-- Single Sidebar End  -->
+    <!-- Single Sidebar Start  -->
+    <div class="common-sidebar-widget">
+        <h3 class="sidebar-title">Compare Products</h3>
+        <div class="compare-products-list">
+            <ul>
+                <li>
+                    <a href="#" class="title">Cras neque metus</a>
+                    <a href="#" class="remove-compare"><i class="fa fa-close"></i></a>
+                </li>
+                <li>
+                    <a href="#" class="title">Cras neque metus</a>
+                    <a href="#" class="remove-compare"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <a href="#" class="clear-btn">Clear all</a>
+            <button type="button" class="btn compare-btn">Compare</button>
+        </div>
+    </div>
+    <!-- Single Sidebar End  -->
+
+</div>

@@ -1,0 +1,59 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+<!-- Mirrored from demo.hasthemes.com/nelson-preview/nelson/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 23 Aug 2021 16:24:31 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Contact || nelson</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link href={% static 'images/favicon.ico' %} type="img/x-icon" rel="shortcut icon">
+    <!-- All css files are included here. -->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/iconfont.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/helper.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+<div id="main-wrapper">
+    {% include 'layouts/header.html' %}
+
+    {% block content %} {% endblock %}
+    <div class="main-search-active">
+    <div class="sidebar-search-icon">
+        <button class="search-close"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="sidebar-search-input">
+        <form action="{% url 'products:list' %}">
+            <div class="form-search">
+                <input id="search" class="input-text" value="{{ request.GET.q }}" name="q" placeholder="" type="search">
+                <button>
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </form>
+        <p class="form-description">Hit enter to search or ESC to close</p>
+    </div>
+</div>
+
+    {% include 'layouts/footer.html' %}
+</div>
+
+<!-- All jquery file included here -->
+<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'js/vendor/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/plugins/plugins.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>
