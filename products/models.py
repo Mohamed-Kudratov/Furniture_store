@@ -27,6 +27,18 @@ class ProductTagModel(models.Model):
         verbose_name_plural = _('product tags')
 
 
+class ColorModel(models.Model):
+    title = models.CharField(max_length=32, verbose_name=_('color'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created at'))
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _(' color ')
+        verbose_name_plural = _('colors')
+
+
 class ProductModel(models.Model):
     title = models.CharField(max_length=150, verbose_name=_('title'))
     image_first = models.ImageField(null=True, upload_to='products', verbose_name=_('image first'))
@@ -39,6 +51,11 @@ class ProductModel(models.Model):
         on_delete=models.PROTECT,
         related_name='products',
         verbose_name=_('category')
+    )
+    colors = models.ManyToManyField(
+        ColorModel,
+        related_name='products',
+        verbose_name=_('colors')
     )
     tags = models.ManyToManyField(
         ProductTagModel,

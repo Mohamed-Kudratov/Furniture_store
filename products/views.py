@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
-from products.models import ProductModel, CategoryModel, ProductTagModel
+from products.models import ProductModel, CategoryModel, ProductTagModel, ColorModel
 
 
 class ProductListView(ListView):
@@ -12,6 +12,7 @@ class ProductListView(ListView):
         context = super().get_context_data(*args, **kwargs)
         context['category'] = CategoryModel.objects.all()
         context['tags'] = ProductTagModel.objects.all()
+        context['colors'] = ColorModel.objects.all()
         return context
 
     def get_queryset(self):
@@ -28,6 +29,16 @@ class ProductListView(ListView):
         tag = self.request.GET.get('tag')
         if tag:
             qs = qs.filter(tags__id=tag)
+
+        colors = self.request.GET.get('colors')
+        if colors:
+            qs = qs.filter(colors_id=colors)
+
+        sort = self.request.GET.get('sort')
+        if sort == '-price':
+            qs = qs.order_by('-price')
+        elif sort == 'price':
+            qs = qs.order_by('price')
 
         return qs
 

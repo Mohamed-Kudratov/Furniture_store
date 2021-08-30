@@ -14,19 +14,20 @@
                     <div class="header-menu-area text-center">
                         <nav class="main-menu">
                             <ul>
-                                <li {% if request.path == '/' %} class="active" {% endif %}>
+                                <li {% if request.path == '/' %} style="text-decoration: underline" {% endif %}>
                                     <a href="{% url 'pages:home' %}">Home</a>
                                 </li>
-                                <li {% if request.path == '/products/' %} class="active" {% endif %}>
+                                <li {% if request.path == '/products/' %} style="text-decoration: underline" {% endif %}>
                                     <a href="{% url 'products:list' %}">Products </a>
                                 </li>
-                                <li {% if request.path == '/about/' %} class="active" {% endif %}>
+                                <li {% if request.path == '/about/' %} style="text-decoration: underline" {% endif %}>
                                     <a href="{% url 'pages:about' %}">About</a>
                                 </li>
-                                <li {% if request.path == '/blog/' %} class="active" {% endif %}>
+                                <li {% if request.path == '/blog/' %}style="text-decoration: underline" {% endif %}>
                                     <a href="{% url 'blog:list' %}">Blog</a>
                                 </li>
-                                <li {% if request.path == '/contact/' %} class="active" {% endif %}><a href="{% url 'pages:contact' %}">Contact</a>
+                                <li {% if request.path == '/contact/' %}style="text-decoration: underline" {% endif %}>
+                                    <a href="{% url 'pages:contact' %}">Contact</a>
                                 </li>
                             </ul>
                         </nav>
